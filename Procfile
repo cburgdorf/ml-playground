@@ -1,2 +1,2 @@
-xor: python xor_keras.py
-lstm: python lstm.py
+xor: python -u xor_keras.py
+lstm: python -u lstm.py
