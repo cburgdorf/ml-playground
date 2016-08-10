@@ -15,4 +15,4 @@ model.compile(loss='mean_squared_error', optimizer=sgd)
 
 history = model.fit(X, y, nb_epoch=10000, batch_size=4, verbose=0)
 
-print model.predict(X)
+print(model.predict(X))
