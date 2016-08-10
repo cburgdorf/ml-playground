@@ -1,1 +1,2 @@
-worker: python xor_keras.py
+xor: python xor_keras.py
+lstm: python lstm.py
