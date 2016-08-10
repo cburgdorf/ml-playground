@@ -1,1 +1,1 @@
-worker: xor_keras.py
+worker: python xor_keras.py
