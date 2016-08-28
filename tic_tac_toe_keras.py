@@ -14,7 +14,7 @@ validation_data = ttt_data.get_validation_data_2d()
 
 model = Sequential()
 model.add(Convolution2D(8, 2, 2, input_shape=(1, 3, 3), activation='relu', border_mode='same'))
-#model.add(Convolution2D(8, 2, 2, activation='sigmoid', border_mode='same'))
+model.add(Convolution2D(1, 2, 2, activation='sigmoid', border_mode='same'))
 #model.add(Convolution2D(6, 2, 2, activation='relu'))
 #model.add(Convolution2D(6, 2, 2, activation='relu'))
 #model.add(Flatten())
