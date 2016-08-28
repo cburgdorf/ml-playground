@@ -27,7 +27,7 @@ def get_training_data_2d():
                         [0,1,0]]]], "float32")
 
 def get_target_data_per_pixel():
-    return  np.array( [[[0,0,0],
+    return  np.array([[[[0,0,0],
                         [0,0,0],
                         [0,0,0]]],
                       [[[0,0,0],
@@ -50,7 +50,7 @@ def get_target_data_per_pixel():
                         [0,0,0]]],
                       [[[0,1,0],
                         [0,1,0],
-                        [0,1,0]]], "float32")
+                        [0,1,0]]]], "float32")
 
 
 def get_target_data_2d():
