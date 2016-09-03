@@ -10,7 +10,7 @@ import connect_four_data as ttt_data
 # target_data = ttt_data.reshape_target_data_1d(ttt_data.get_target_data_2d());
 # validation_data = ttt_data.reshape_validation_data_1d(ttt_data.get_validation_data_2d())
 
-training_data, target_data = data_gen.generate_samples(10000)
+training_data, target_data = data_gen.generate_samples(3000)
 #training_data = ttt_data.get_training_data_2d()
 #target_data = ttt_data.get_target_data_per_pixel()
 validation_data = ttt_data.get_validation_data_2d()
@@ -22,6 +22,7 @@ model.add(Convolution2D(6, 2, 2, activation='relu', border_mode='same'))
 model.add(Convolution2D(6, 2, 2, activation='relu', border_mode='same'))
 model.add(Convolution2D(6, 2, 2, activation='relu', border_mode='same'))
 model.add(Convolution2D(1, 2, 2, activation='sigmoid', border_mode='same'))
+
 #model.add(Convolution2D(6, 2, 2, activation='relu'))
 #model.add(Convolution2D(6, 4, 4, activation='relu'))
 #model.add(Convolution2D(6, 4, 4, activation='relu'))
