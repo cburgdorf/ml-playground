@@ -36,7 +36,7 @@ model.summary()
 #sgd = SGD(lr=0.1, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy'])
 
-history = model.fit(training_data, target_data, nb_epoch=10000, batch_size=4, verbose=0)
+history = model.fit(training_data, target_data, nb_epoch=10000, batch_size=32, verbose=0)
 #print(history.history)
 prediction = model.predict(validation_data);
 print(prediction)
