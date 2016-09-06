@@ -124,6 +124,7 @@ def generate_samples(sample_count):
 
     training_data = None
     target_data = None
+    target_data_simple = None;
     for x in range(0, sample_count):
         grid = reshape(gen_data())
         if training_data == None:
@@ -137,10 +138,17 @@ def generate_samples(sample_count):
             total_positives = total_positives + 1
         if target_data == None:
             target_data = marked_grid.reshape(1, 6, 6)
+            target_data_simple = np.array([ 1 if num_lines > 0 else 0 ])
         else:
             target_data = np.concatenate([target_data, marked_grid.reshape(1, 6, 6)])
+            target_data_simple = np.concatenate([target_data_simple, np.array([1 if num_lines > 0 else 0])])
 
     print("\nTotal Positives: " + str(total_positives))
     print("Total Lines: " + str(total_lines))
 
-    return (training_data.reshape(sample_count, 1, 6 , 6), target_data.reshape(sample_count, 1, 6, 6))
+    return (training_data.reshape(sample_count, 1, 6 , 6),
+            target_data.reshape(sample_count, 1, 6, 6),
+            target_data_simple.flatten())
+
+
+print generate_samples(3)
