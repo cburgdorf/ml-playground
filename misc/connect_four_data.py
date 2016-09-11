@@ -557,6 +557,9 @@ def get_validation_data_2d():
                      [0,0,0,0,0,0],
                      [0,0,0,0,0,0]]]], "float32")
 
+def get_validation_data_2d_tuple():
+    return (get_validation_data_2d(), np.array([1,1,1,1,1,1,1,1,1,0]))
+
 def reshape_training_data_1d(arr):
     return arr.reshape(40,36)
 

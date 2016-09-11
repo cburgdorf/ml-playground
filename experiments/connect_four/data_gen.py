@@ -1,7 +1,19 @@
 import numpy as np
+from random import randint
 
 def gen_data():
-    arr = np.array([1,0,0]).repeat(12);
+
+    r = randint(1, 4)
+    arr = None
+    if r == 1:
+        arr = np.array([1,0,]).repeat(18);
+    elif r == 2:
+        arr = np.array([1,0,0]).repeat(12);
+    elif r == 3:
+        arr = np.array([1,1,0]).repeat(12);
+    elif r == 4:
+        arr = np.array([1,0,0,0]).repeat(9);
+
     np.random.shuffle(arr)
     return arr
 
