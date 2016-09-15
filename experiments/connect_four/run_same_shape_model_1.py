@@ -11,13 +11,12 @@ training_data, target_data, target_data_simple = data_gen.generate_samples(2000)
 
 model = Sequential()
 model.add(Convolution2D(16, 4, 4, input_shape=(1, 6, 6), activation='relu', border_mode='same'))
+model.add(Dropout(0.25))
 model.add(Convolution2D(32, 3, 3, activation='relu', border_mode='same'))
-#model.add(MaxPooling2D(pool_size=(2, 2), border_mode='same'))
 model.add(Dropout(0.25))
 model.add(Convolution2D(64, 2, 2, activation='relu', border_mode='same'))
-model.add(Convolution2D(1, 1, 1, activation='sigmoid', border_mode='same'))
-#model.add(MaxPooling2D(pool_size=(2, 2), border_mode='same'))
 model.add(Dropout(0.25))
+model.add(Convolution2D(1, 1, 1, activation='sigmoid', border_mode='same'))
 
 model.summary()
 
@@ -26,16 +25,16 @@ model_checkpoint = ModelCheckpoint(filepath='saved_models/same_shape_model_1/wei
 
 (val_input_data, val_target_data, _) = validation_data.get_validation_data_tuple()
 
-model.load_weights("saved_models/same_shape_model_1/weights-loss_0.01-acc_0.62.hdf5")
+model.load_weights("saved_models/same_shape_model_1/weights-loss_0.01-acc_0.64.hdf5")
 
-# history = model.fit(training_data,
-#                     target_data,
-#                     nb_epoch=1000,
-#                     batch_size=32,
-#                     shuffle='batch',
-#                     verbose=2,
-#                     validation_data = (val_input_data, val_target_data),
-#                     callbacks=[model_checkpoint])
+history = model.fit(training_data,
+                    target_data,
+                    nb_epoch=1000,
+                    batch_size=32,
+                    shuffle='batch',
+                    verbose=2,
+                    validation_data = (val_input_data, val_target_data),
+                    callbacks=[model_checkpoint])
 
 
 np.set_printoptions(threshold=np.inf)
